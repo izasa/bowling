@@ -9,3 +9,8 @@
 .Head{
     background-color: rgb(242, 242, 242);
 }
+
+.Refresh {
+    margin: 50px 0;
+    display: flex; justify-content: flex-end
+}

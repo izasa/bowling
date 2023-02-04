@@ -6,6 +6,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import RefreshIcon from '@mui/icons-material/Refresh';
+
+
 import './BowlingList.css';
 
 function BowlingList() {
@@ -63,22 +67,26 @@ function BowlingList() {
     const getRowWithPin = (arr) => {
         let res = [];
         for (let i = 0; i < 22; i++) {
+            console.log(arr[i])
             res.push(<TableCell key={i} className="cell" align="right">{arr[i]}</TableCell>)
         }
         return res;
       };
+    
+    const refreshPage = ()=> window.location.reload(false);
 
     return (
         <div className="BowlingTable">
             {list.length === 0 ? (
                 <input type="file" onChange={handleOnClick} accept=".txt" />
             ): (
+                <>
             <TableContainer component={Paper}>
                 <Table  aria-label="simple table">
                     <TableHead className="Head" >
                         <TableRow>
                             <TableCell className="cell">Zawodnik</TableCell>
-                            <TableCell className="cell">Wynik</TableCell>
+                            <TableCell className="cell" align="right">Wynik</TableCell>
                             {getTableHeaders}
                         </TableRow>
                     </TableHead>
@@ -97,6 +105,13 @@ function BowlingList() {
                     </TableBody>
                 </Table>
             </TableContainer>
+            <div className="Refresh">
+                  <Button color="primary" variant="contained" aria-label="add" onClick={refreshPage}>
+                  <RefreshIcon />
+                  Odśwież
+                </Button>
+                </div>
+                </>
             )}
         </div>
     )

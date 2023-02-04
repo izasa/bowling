@@ -8,11 +8,11 @@ function Banner() {
         <div className="Banner">
             <AppBar position="static">
                 <Toolbar disableGutters>
-                    <EmojiEventsIcon/>
+                    <EmojiEventsIcon style={{width: '50px'}}/>
                     <Typography
                         variant="h6"
                     >
-                        Bowling 
+                        System raportowania wyników gry w kręgle Bowling 
                     </Typography>
                 </Toolbar>
             </AppBar>
