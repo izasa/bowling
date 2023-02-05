@@ -1,7 +1,6 @@
 import './App.css';
-import Banner from './Banner';
-import BowlingList from './BowlingList';
-
+import Banner from './Components/Banner';
+import BowlingList from './Components/BowlingList';
 
 function App() {
   return (

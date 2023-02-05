@@ -3,7 +3,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 
 function RefreshButton() {
 
-    const refreshPage = () => window.location.reload(false);
+    const refreshPage = () => window.location.reload();
 
     return (
         <div className="Refresh">
