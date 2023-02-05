@@ -1,3 +1,4 @@
+import { Player } from './Player';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,14 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 
-export interface Player {
-    name: string,
-    score: number,
-    pins: Array<number>;
-}
-
-
-function BowlingTable(props : {list: Player[]}) {
+function BowlingTable(props: { list: Player[] }) {
 
     const getTableHeaders = Array.from({ length: 22 }, (_, index) => {
         return <TableCell className="cell" key={index} align="right">{index + 1}</TableCell>;
@@ -23,7 +17,9 @@ function BowlingTable(props : {list: Player[]}) {
     const getRowWithPin = (arr: Array<number>) => {
         let res = [];
         for (let i = 0; i < 22; i++) {
-            res.push(<TableCell key={i} className="cell" align="right">{arr[i]}</TableCell>)
+            i > 0 && i % 2 !== 0 && arr[i - 1] === 10 && i !== 21
+                ? res.push(<TableCell key={i} className="cell" align="right">{'-'}</TableCell>)
+                : res.push(<TableCell key={i} className="cell" align="right">{arr[i]}</TableCell>)
         }
         return res;
     };

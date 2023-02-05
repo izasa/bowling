@@ -1,31 +1,34 @@
-# Getting Started with Create React App
+# About the project 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to run project
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+Please check if you have installed node and npm.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Example:
+$ node --version
+v18.13.0
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+$ npm --version
+8.19.3
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Run application
 
-### 
-Libraries:
+Open src directory:
+cd bowling/src/ 
 
+and run command:
+npm start
+
+
+Browser will open: [http://localhost:3000](http://localhost:3000) with running application in the development mode.
+
+
+## UI Library
 
 Material UI:
 https://mui.com/material-ui/getting-started/overview/
-
-
-Dropzone:
-https://react-dropzone.js.org/
