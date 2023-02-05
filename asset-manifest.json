@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bowling/static/css/main.722ea2b0.css",
+    "main.js": "/bowling/static/js/main.84b0f24a.js",
+    "static/js/787.28cb0dcd.chunk.js": "/bowling/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/bowling/index.html",
+    "main.722ea2b0.css.map": "/bowling/static/css/main.722ea2b0.css.map",
+    "main.84b0f24a.js.map": "/bowling/static/js/main.84b0f24a.js.map",
+    "787.28cb0dcd.chunk.js.map": "/bowling/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.722ea2b0.css",
+    "static/js/main.84b0f24a.js"
+  ]
+}
