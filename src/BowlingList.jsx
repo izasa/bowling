@@ -1,15 +1,6 @@
 import React, { useState } from 'react'
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
-import RefreshIcon from '@mui/icons-material/Refresh';
-
-
+import BowlingTable from './BowlingTable';
+import RefreshButton from './RefreshButton';
 import './BowlingList.css';
 
 function BowlingList() {
@@ -44,8 +35,10 @@ function BowlingList() {
     const handleOnClick = async (e) => {
         let reader = new FileReader()
         let file = e.target.files[0]
+
+        reader.readAsText(file);
         reader.onload = async (e) => {
-            const text = (e.target.result);
+            const text = reader.result;
             const result = text.split(/\r?\n/);
             let arr = [];
             //check is result.length%
@@ -57,65 +50,20 @@ function BowlingList() {
             }
             setList(arr);
         };
-        reader.readAsText(file);
     }
-
-    const getTableHeaders = Array.from({length: 22}, (_, index) => {
-        return <TableCell className="cell" key={index} align="right">{index + 1}</TableCell>;
-      });
-
-    const getRowWithPin = (arr) => {
-        let res = [];
-        for (let i = 0; i < 22; i++) {
-            console.log(arr[i])
-            res.push(<TableCell key={i} className="cell" align="right">{arr[i]}</TableCell>)
-        }
-        return res;
-      };
-    
-    const refreshPage = ()=> window.location.reload(false);
 
     return (
         <div className="BowlingTable">
             {list.length === 0 ? (
                 <input type="file" onChange={handleOnClick} accept=".txt" />
-            ): (
+            ) : (
                 <>
-            <TableContainer component={Paper}>
-                <Table  aria-label="simple table">
-                    <TableHead className="Head" >
-                        <TableRow>
-                            <TableCell className="cell">Zawodnik</TableCell>
-                            <TableCell className="cell" align="right">Wynik</TableCell>
-                            {getTableHeaders}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {list.map((row) => (
-                            <TableRow
-                                key={row.name}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell className="cell" component="th" scope="row">{row.name} </TableCell>
-                                <TableCell className="cell" align="right">{row.score}</TableCell>
-
-                                {getRowWithPin(row.pins)}
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <div className="Refresh">
-                  <Button color="primary" variant="contained" aria-label="add" onClick={refreshPage}>
-                  <RefreshIcon />
-                  Odśwież
-                </Button>
-                </div>
+                    <BowlingTable list={list}/>
+                    <RefreshButton />
                 </>
             )}
         </div>
     )
 }
-
 
 export default BowlingList

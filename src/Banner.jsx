@@ -9,9 +9,7 @@ function Banner() {
             <AppBar position="static">
                 <Toolbar disableGutters>
                     <EmojiEventsIcon style={{width: '50px'}}/>
-                    <Typography
-                        variant="h6"
-                    >
+                    <Typography variant="h6">
                         System raportowania wyników gry w kręgle Bowling 
                     </Typography>
                 </Toolbar>
